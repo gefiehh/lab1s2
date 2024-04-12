@@ -118,6 +118,7 @@ Food * remove() {
     for (int i = 0; i < index + 1; i++)
         newarr[i - 1] = arr[i];
     return newarr;
+    save(arr, n);
 }
 
 void edit(Food *arr, int n) {
