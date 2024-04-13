@@ -97,27 +97,28 @@ Food * add(Food *arr, int &n) {
     return new_arr;
 }
 
-Food * remove() {
-    int n = 0;
-    Food *arr = load(n);
-    int index = -1;
+void remove(Food *&arr, int &n) {
     cout << "Enter the name of the food you want to remove: ";
     string name;
     cin >> name;
-    for (int i = 0; i < n; i++){
-        if (arr[i].name() == name){
-            index = i;
+
+    bool found = false;
+    for (int i = 0; i < n; i++) {
+        if (arr[i].name() == name) {
+            for (int j = i; j < n - 1; j++) {
+                arr[j] = arr[j + 1];
+            }
+            n--;
+            found = true;
             break;
         }
     }
-    if (index == -1)
-        return arr;
-    Food *newarr = new Food[n - 1];
-    for (int i = 0; i < index; i++)
-        newarr[i] = arr[i];
-    for (int i = 0; i < index + 1; i++)
-        newarr[i - 1] = arr[i];
-    return newarr;
+
+    if (!found) {
+        cout << "Food not found" << endl;
+        return;
+    }
+
     save(arr, n);
 }
 

@@ -26,7 +26,8 @@ int main(){
             save(arr, n);
             break;
         case 4:
-            arr = remove();;
+            remove(arr, n);
+            save(arr, n);
             break;
         case 5:
             edit(arr, n);

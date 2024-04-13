@@ -25,7 +25,7 @@ void save(Food *arr, int n);
 Food *load(int &n);
 void create();
 Food * add(Food *arr, int &n);
-Food * remove();
+void remove(Food *&arr, int &n);
 void edit(Food *arr, int n);
 void search(Food *arr, int n);
 
